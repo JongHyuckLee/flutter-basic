@@ -12,14 +12,41 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(),
-        body: Text(
-          '텍스트 위젯',
-          style: TextStyle(
-              fontSize: 35, // 폰트 크기
-              fontWeight: FontWeight.bold, // 폰트 두께
-              color: Colors.amber //
-              ),
+        appBar: AppBar(
+          title: Text(
+            'Hello Flutter',
+            style: TextStyle(
+              fontSize: 28,
+            ),
+          ),
+          centerTitle: true,
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(32.0),
+                  child: Image.network(
+                    "https://i.ibb.co/CwzHq4z/trans-logo-512.png",
+                    width: 81,
+                  ),
+                ),
+                TextField(
+                  decoration: InputDecoration(labelText: '이메일'),
+                ),
+                TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(labelText: '비밀번호'),
+                ),
+                Container(
+                    width: double.infinity,
+                    margin: const EdgeInsets.only(top: 16),
+                    child: ElevatedButton(onPressed: () {}, child: Text('로그인')))
+              ],
+            ),
+          ),
         ),
       ),
     );
